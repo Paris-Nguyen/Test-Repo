@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://qeqm7q6f8lxr"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_vu3rb"]
+[ext_resource type="Texture2D" uid="uid://c438xnpkeiu6e" path="res://Colour 000 Button.png" id="2_n40mb"]
+[ext_resource type="FontFile" uid="uid://bklcb8n1gxh3g" path="res://addons/onscreenkeyboard/customize/styles/Roboto/Roboto-Bold.ttf" id="2_quxfy"]
+[ext_resource type="FontFile" uid="uid://cag17epl8u50r" path="res://RobotoMono-Regular.ttf" id="3_662e2"]
+[ext_resource type="Script" path="res://addons/onscreenkeyboard/keyboard_layout.gd" id="5_jx5w2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0s83l"]
+font = ExtResource("3_662e2")
+font_size = 30
+font_color = Color(0, 0.870588, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bwvgr"]
+line_spacing = 50.0
+font = ExtResource("2_quxfy")
+font_size = 60
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_vu3rb")
+
+[node name="Editor" type="CodeEdit" parent="."]
+offset_left = 88.0
+offset_top = 218.0
+offset_right = 1084.0
+offset_bottom = 1734.0
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+theme_override_colors/font_color = Color(0, 0.870588, 0, 1)
+theme_override_fonts/font = ExtResource("2_quxfy")
+theme_override_font_sizes/font_size = 80
+scroll_smooth = true
+scroll_past_end_of_file = true
+caret_type = 1
+
+[node name="KeyboardLayout" type="Node" parent="Editor"]
+script = ExtResource("5_jx5w2")
+
+[node name="Submit_button" type="TouchScreenButton" parent="."]
+position = Vector2(498, 55)
+texture_normal = ExtResource("2_n40mb")
+
+[node name="Label" type="Label" parent="Submit_button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -20.5
+offset_right = 54.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Submit"
+label_settings = SubResource("LabelSettings_0s83l")
+
+[node name="Quit_button" type="TouchScreenButton" parent="."]
+position = Vector2(281, 44)
+texture_normal = ExtResource("2_n40mb")
+
+[node name="Label" type="Label" parent="Quit_button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -20.5
+offset_right = 54.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_0s83l")
+
+[node name="output" type="Label" parent="."]
+offset_left = 725.0
+offset_top = 46.0
+offset_right = 1069.0
+offset_bottom = 251.0
+text = "place"
+label_settings = SubResource("LabelSettings_bwvgr")
+
+[connection signal="pressed" from="Submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="Quit_button" to="." method="_on_quit_button_pressed"]
