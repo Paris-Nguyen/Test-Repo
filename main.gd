@@ -17,7 +17,7 @@ func _ready():
 	
 	
 	
-
+#this is an new update
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +25,9 @@ func _process(delta):
 	pass
 	
 
-
+func test_function();
+	pass
+	
 		
 
 func _on_submit_button_pressed():
