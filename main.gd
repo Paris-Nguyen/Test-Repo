@@ -15,6 +15,10 @@ func _ready():
 	DisplayServer.virtual_keyboard_show("",Rect2(10,10,500,500),DisplayServer.KEYBOARD_TYPE_DEFAULT,-1,-1,-1)
 	
 	
+func test_function2();
+	pass
+
+
 	
 	
 #this is an new update
